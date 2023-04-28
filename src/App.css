@@ -1,0 +1,23 @@
+.container-main {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.card1 {
+  width: 250px;
+  height: 150px;
+}
+
+.card1 img {
+  max-width: 100%;
+}
+
+.card2 {
+  width: 250px;
+  height: 150px;
+}
+
+.card2 img {
+  max-width: 100%;
+}
