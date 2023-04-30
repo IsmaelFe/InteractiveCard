@@ -11,7 +11,7 @@
 .card1 {
   position: absolute;
   margin-top: -210px;
-  right: 13px;
+  margin-left: 60px;
   width: 300px;
   height: 200px;
 }
@@ -72,5 +72,74 @@
   height: 30px;
   margin-top: 90px;
   margin-left: 13px;
+  background-color: transparent;
+  border: none;
+  pointer-events: none;
 }
 
+.form-container {
+  height: 400px;
+  width: 350px;
+  margin: 90px auto 0 auto;
+}
+
+.form-main {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.form-main input {
+  height: 40px;
+  border-radius: 6px;
+  border: solid 1px #ECEDED;
+  padding-left: 10px;
+}
+
+.form-main label {
+  font-size: 0.8em;
+  letter-spacing: 1.5px;
+}
+
+.form-main span {
+  font-size: 0.7em;
+  color: red;
+}
+
+button {
+  height: 45px;
+  margin-top: 20px;
+  background-color: #230830;
+  border-radius: 6px;
+  border: none;
+  color: white;
+}
+
+.container-date {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#date {
+  width: 70px;
+}
+
+#year {
+  width: 70px;
+}
+
+#cvc {
+  width: 150px;
+}
+
+.exp-date {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.container-labels {
+  display: flex;
+  gap: 25px;
+}

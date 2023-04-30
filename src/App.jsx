@@ -1,5 +1,6 @@
 import './App.css'
 import Back_Card from './components/Back_Card'
+import Form_card from './components/Form_card'
 import Front_Card from './components/Front_Card'
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
         <Front_Card />
       </div> 
       <div className='container-form'>
-
+        <Form_card />
       </div>
     </div>
   )
