@@ -1,8 +1,9 @@
 import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import PropTypes from 'prop-types'
 
-const Form_card = () => {
+const Form_card = ({setNew}) => {
 
   const styleError = {
     border: 'solid 1px red'
@@ -11,32 +12,34 @@ const Form_card = () => {
   const loginSchema = Yup.object().shape(
     {
       cardholder: Yup.string()
-                  .required('El email es requerido')
+                  .required('El nombre es requerido')
                   .min(10, 'Nombre de usuario demasiado corto')
                   .max(29, 'Nombre de usuario demasiado largo'),
       card_number: Yup.number('El formato es incorrecto solo numeros')
                   .required('El campo es requerido'),
       month: Yup.number()
                   .required('Campo Requerido')
-                  .min(2, 'Valor faltante en el campo')
-                  .max(2, 'Datos sobrantes en el campo'),
+                  .min(2, 'Valor faltante en el campo'),
       year: Yup.number()
                   .required('El campo es requerido')
-                  .min(2, 'Valor faltante en el campo')
-                  .max(2, 'Datos sobrantes en el campo'),
+                  .min(2, 'Valor faltante en el campo'),
       cvc: Yup.number()
                   .required('El campo es requerido')
                   .min(3, 'Valores faltantes en el campo')
-                  .max(3, 'Demasiados valores en el campo')
     }
   )
 
   const initialCredentials = {
     cardholder: '',
-    card_number: null,
-    month: null,
-    year: null,
-    cvc: null,
+    card_number: '',
+    month: '',
+    year: '',
+    cvc: '',
+  }
+
+  function actualizar(e) {
+      const valor = e.target.value
+      setNew(valor)
   }
 
   return (
@@ -50,7 +53,7 @@ const Form_card = () => {
               errors }) => (
                 <Form className='form-main'>
                   <label htmlFor='cardholder'>CARDHOLDER NAME</label>
-                  <Field id='cardholder' type='text' name='cardholder' placeholder='e.g. Jane Appleseed' style={ errors.cardholder && styleError}/>
+                  <Field onKeyUp={actualizar} id='cardholder' type='text' name='cardholder' placeholder='e.g. Jane Appleseed' style={ errors.cardholder && styleError}/>
                   {
                     errors.cardholder &&
                     (
@@ -103,6 +106,10 @@ const Form_card = () => {
       </Formik>
     </div>
   )
+}
+
+Form_card.propTypes = {
+  setNew: PropTypes.func
 }
 
 export default Form_card
