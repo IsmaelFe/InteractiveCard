@@ -6,6 +6,13 @@
 
 .container-card {
   position: relative;
+  margin: auto;
+  
+}
+
+.back-img {
+  width: 100%;
+  max-width: 100%;
 }
 
 .card1 {
@@ -48,6 +55,8 @@
   margin-top: 130px;
   margin-left: 15px;
   color: white;
+  font-size: 0.7em;
+  letter-spacing: 1px;
 }
 
 .span-front-card-2 {
@@ -55,6 +64,8 @@
   margin-top: 130px;
   right: 15px;
   color: white;
+  font-size: 0.7em;
+  letter-spacing: 1.5px;
 }
 
 .icon-card {
@@ -94,6 +105,12 @@
   border-radius: 6px;
   border: solid 1px #ECEDED;
   padding-left: 10px;
+  font-size: 1.1em;
+}
+
+.form-main input::placeholder {
+  color: #C7C3C9;
+  letter-spacing: 1px;
 }
 
 .form-main label {
@@ -113,6 +130,7 @@ button {
   border-radius: 6px;
   border: none;
   color: white;
+  font-size: 1.2em;
 }
 
 .container-date {
@@ -143,3 +161,4 @@ button {
   display: flex;
   gap: 25px;
 }
+

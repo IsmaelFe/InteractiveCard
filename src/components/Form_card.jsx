@@ -3,7 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import PropTypes from 'prop-types'
 
-const Form_card = ({setNew}) => {
+const Form_card = ({setNew, setNum, setMonth, setYear, setCvc}) => {
 
   const styleError = {
     border: 'solid 1px red'
@@ -16,7 +16,8 @@ const Form_card = ({setNew}) => {
                   .min(10, 'Nombre de usuario demasiado corto')
                   .max(29, 'Nombre de usuario demasiado largo'),
       card_number: Yup.number('El formato es incorrecto solo numeros')
-                  .required('El campo es requerido'),
+                  .required('El campo es requerido')
+                  .min(16, 'Faltan números'),
       month: Yup.number()
                   .required('Campo Requerido')
                   .min(2, 'Valor faltante en el campo'),
@@ -25,7 +26,7 @@ const Form_card = ({setNew}) => {
                   .min(2, 'Valor faltante en el campo'),
       cvc: Yup.number()
                   .required('El campo es requerido')
-                  .min(3, 'Valores faltantes en el campo')
+                  .min(5, 'Valores faltantes en el campo')
     }
   )
 
@@ -37,10 +38,10 @@ const Form_card = ({setNew}) => {
     cvc: '',
   }
 
-  function actualizar(e) {
-      const valor = e.target.value
-      setNew(valor)
-  }
+  //function actualizar(e) {
+      //const valor = e.target.value
+      //setNew(valor)
+  //}
 
   return (
     <div className='form-container'> 
@@ -53,7 +54,7 @@ const Form_card = ({setNew}) => {
               errors }) => (
                 <Form className='form-main'>
                   <label htmlFor='cardholder'>CARDHOLDER NAME</label>
-                  <Field onKeyUp={actualizar} id='cardholder' type='text' name='cardholder' placeholder='e.g. Jane Appleseed' style={ errors.cardholder && styleError}/>
+                  <Field onKeyUp={(e) => setNew(e.target.value)} id='cardholder' type='text' name='cardholder' placeholder='e.g. Jane Appleseed' style={ errors.cardholder && styleError}/>
                   {
                     errors.cardholder &&
                     (
@@ -61,7 +62,7 @@ const Form_card = ({setNew}) => {
                     )
                   }
                   <label htmlFor='card_number'>CARD NUMBER</label>
-                  <Field id='card_number' type='number' name='card_number' placeholder='e.g. 1234 5678 9123 0000' style={ errors.card_number && styleError }/>
+                  <Field onKeyUp={(e) => setNum(e.target.value)} id='card_number' type='number' name='card_number' placeholder='e.g. 1234 5678 9123 0000' style={ errors.card_number && styleError }/>
                   {
                     errors.card_number && touched.card_number &&
                     (
@@ -75,21 +76,21 @@ const Form_card = ({setNew}) => {
                       <label htmlFor='cvc'>CVC</label>
                     </div>
                     <div className='exp-date'>
-                      <Field id='date' type='number' name='month' placeholder='MM' style={ errors.month && styleError} />
+                      <Field onKeyUp={(e) => setMonth(e.target.value)} id='date' type='number' name='month' placeholder='MM' style={ errors.month && styleError} />
                       {
                         errors.month && touched.month &&
                         (
                           <ErrorMessage name='month' component='span'></ErrorMessage>
                         )
                       }
-                      <Field  id='year' type='number' name='year' placeholder='YY' style={ errors.year && styleError}/>
+                      <Field onKeyUp={(e) => setYear(e.target.value)} id='year' type='number' name='year' placeholder='YY' style={ errors.year && styleError}/>
                       {
                         errors.year && touched.year && 
                         (
                           <ErrorMessage name='year' component='span'></ErrorMessage>
                         )
                       }
-                      <Field type='number' id='cvc' name='cvc' placeholder='e.g. 123' style={ errors.cvc && styleError } />
+                      <Field onKeyUp={(e) => setCvc(e.target.value)} type='number' id='cvc' name='cvc' placeholder='e.g. 123' style={ errors.cvc && styleError } />
                       {
                         errors.cvc && touched.cvc && 
                         (
@@ -109,7 +110,11 @@ const Form_card = ({setNew}) => {
 }
 
 Form_card.propTypes = {
-  setNew: PropTypes.func
+  setNew: PropTypes.func,
+  setNum: PropTypes.func,
+  setMonth: PropTypes.func,
+  setYear: PropTypes.func,
+  setCvc: PropTypes.func
 }
 
 export default Form_card

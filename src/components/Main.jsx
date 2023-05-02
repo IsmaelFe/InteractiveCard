@@ -22,15 +22,44 @@ const Main = () => {
         })
     }
 
+    const newNum = (value) => {
+        
+        setCard({
+            ...card,
+            number: value
+        })
+    }
+
+    const newMonth = (value) => {
+        setCard({
+            ...card,
+            month: value
+        })
+    }
+
+    const newYear = (value) => {
+        setCard({
+            ...card,
+            year: value
+        })
+    }
+
+    const newCvc = (value) => {
+        setCard({
+            ...card,
+            cvc: value
+        })
+    }
+
     return (
     <div className='container-main'>
         <div className='container-card'>
-            <img src='../../public/assets/images/bg-main-mobile.png' alt='fondo'></img>
+            <img className='back-img' src='../../public/assets/images/bg-main-mobile.png' alt='fondo'></img>
             <Back_Card card={card}/>
             <Front_Card card={card}/>
         </div> 
         <div className='container-form'>
-            <Form_card setNew={newCard}/>
+            <Form_card setNew={newCard} setNum={newNum} setMonth={newMonth} setYear={newYear} setCvc={newCvc}/>
         </div>
     </div>
     )
