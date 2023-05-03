@@ -9,24 +9,22 @@ const Form_card = ({setNew, setNum, setMonth, setYear, setCvc}) => {
     border: 'solid 1px red'
   }
 
-  const loginSchema = Yup.object().shape(
+  const loginSchema = Yup.object().shape( 
     {
       cardholder: Yup.string()
-                  .required('El nombre es requerido')
-                  .min(10, 'Nombre de usuario demasiado corto')
-                  .max(29, 'Nombre de usuario demasiado largo'),
-      card_number: Yup.number('El formato es incorrecto solo numeros')
+                  .max(16, 'Nombre demasiado largo')
+                  .required('El nombre es requerido'),
+      card_number: Yup.string('El formato es incorrecto solo numeros')
                   .required('El campo es requerido')
-                  .min(16, 'Faltan números'),
+                  .min(16, 'Faltan números')
+                  .max(16, 'Demasiados números'),
       month: Yup.number()
-                  .required('Campo Requerido')
-                  .min(2, 'Valor faltante en el campo'),
+                  .required('Campo Requerido'),
       year: Yup.number()
-                  .required('El campo es requerido')
-                  .min(2, 'Valor faltante en el campo'),
+                  .required('El campo es requerido'),
       cvc: Yup.number()
                   .required('El campo es requerido')
-                  .min(5, 'Valores faltantes en el campo')
+                  .min(3, 'Valores faltantes en el campo')
     }
   )
 
