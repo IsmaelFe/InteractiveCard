@@ -123,7 +123,7 @@
   color: red;
 }
 
-button {
+.form-main button {
   height: 45px;
   margin-top: 20px;
   background-color: #230830;
@@ -162,3 +162,39 @@ button {
   gap: 25px;
 }
 
+.complete-state {
+  height: 400px;
+  width: 350px;
+  margin: 90px auto 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.complete-state img {
+  width: 80px;
+  height: 80px;
+}
+
+.complete-state h2 {
+  margin-top: 15px;
+  letter-spacing: 4px;
+  font-size: 1.5em;
+}
+
+.complete-state p {
+  color: gray;
+  letter-spacing: 1px;
+}
+
+.complete-state button {
+  width: 90%;
+  height: 45px;
+  margin-top: 20px;
+  background-color: #230830;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  font-size: 1.2em;
+}
