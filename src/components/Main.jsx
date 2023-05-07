@@ -25,9 +25,6 @@ const Main = () => {
   };
 
   const newNum = (value) => {
-    let newValue = value;
-    console.log(newValue);
-
     setCard({
       ...card,
       number: value,

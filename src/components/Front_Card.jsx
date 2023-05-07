@@ -11,7 +11,10 @@ const Front_Card = ({ card }) => {
   };
 
   let value = card.number;
-  let newValue = value.split(" ");
+  let numberOne = value.substr(0, 4);
+  let numberTwo = value.substr(4, 4);
+  let numberTre = value.substr(8, 4);
+  let numberFour = value.substr(12, 4);
 
   let lMonth = card.month.length;
   let lYear = card.year.length;
@@ -30,7 +33,7 @@ const Front_Card = ({ card }) => {
       ></img>
       <input
         style={stylesInput}
-        value={card.number}
+        value={`${numberOne} ${numberTwo} ${numberTre} ${numberFour}`}
         type="text"
         readOnly
         className="input-front-card"
