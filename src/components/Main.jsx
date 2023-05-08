@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import Back_Card from "./Back_Card";
 import Form_card from "./Form_card";
 import Front_Card from "./Front_Card";
@@ -14,8 +14,21 @@ const Main = () => {
   };
 
   let nuevoValor = false;
+  let mobileImage = "../../public/assets/images/bg-main-mobile.png";
+  let desktopImage = "../../public/assets/images/bg-main-desktop.png";
 
   const [card, setCard] = useState(initialState);
+  const [image, setImage] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setImage(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const newCard = (value) => {
     setCard({
@@ -57,7 +70,7 @@ const Main = () => {
       <div className="container-card">
         <img
           className="back-img"
-          src="../../public/assets/images/bg-main-mobile.png"
+          src={image > 500 ? desktopImage : mobileImage}
           alt="fondo"
         ></img>
         <Back_Card card={card} />
