@@ -73,8 +73,8 @@ const Main = () => {
           src={image > 500 ? desktopImage : mobileImage}
           alt="fondo"
         ></img>
-        <Back_Card card={card} />
-        <Front_Card card={card} />
+        <Back_Card card={card} image={image} />
+        <Front_Card card={card} image={image} />
       </div>
       <div className="container-form">
         {nuevoValor ? (

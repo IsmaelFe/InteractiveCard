@@ -73,6 +73,7 @@ const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc }) => {
               </div>
               <div className="exp-date">
                 <Field
+                  className="inputMonth"
                   onKeyUp={(e) => setMonth(e.target.value)}
                   id="date"
                   type="number"
@@ -81,9 +82,14 @@ const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc }) => {
                   style={errors.month && styleError}
                 />
                 {errors.month && touched.month && (
-                  <ErrorMessage name="month" component="span"></ErrorMessage>
+                  <ErrorMessage
+                    name="month"
+                    component="span"
+                    className="errorMonth"
+                  ></ErrorMessage>
                 )}
                 <Field
+                  className="inputYear"
                   onKeyUp={(e) => setYear(e.target.value)}
                   id="year"
                   type="number"
@@ -92,9 +98,14 @@ const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc }) => {
                   style={errors.year && styleError}
                 />
                 {errors.year && touched.year && (
-                  <ErrorMessage name="year" component="span"></ErrorMessage>
+                  <ErrorMessage
+                    name="year"
+                    component="span"
+                    className="errorYear"
+                  ></ErrorMessage>
                 )}
                 <Field
+                  className="inputNumber"
                   onKeyUp={(e) => setCvc(e.target.value)}
                   type="number"
                   id="cvc"
@@ -103,7 +114,11 @@ const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc }) => {
                   style={errors.cvc && styleError}
                 />
                 {errors.cvc && touched.cvc && (
-                  <ErrorMessage name="cvc" component="span"></ErrorMessage>
+                  <ErrorMessage
+                    name="cvc"
+                    component="span"
+                    className="errorCvc"
+                  ></ErrorMessage>
                 )}
               </div>
             </div>

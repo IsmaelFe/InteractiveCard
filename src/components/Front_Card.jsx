@@ -1,13 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Front_Card = ({ card }) => {
+const Front_Card = ({ card, image }) => {
   const stylesInput = {
     color: "white",
     fontSize: "1.3em",
     textAlign: "center",
     letterSpacing: "2px",
     fontWeight: "100",
+  };
+
+  const stylesDesktop = {
+    width: "330px",
+    color: "white",
+    fontSize: "1.5em",
+    textAlign: "center",
+    letterSpacing: "3px",
+    fontWeight: "100",
+    marginLeft: "30px",
   };
 
   let value = card.number;
@@ -32,7 +42,7 @@ const Front_Card = ({ card }) => {
         className="icon-card"
       ></img>
       <input
-        style={stylesInput}
+        style={image > 500 ? stylesDesktop : stylesInput}
         value={`${numberOne} ${numberTwo} ${numberTre} ${numberFour}`}
         type="text"
         readOnly
@@ -45,6 +55,7 @@ const Front_Card = ({ card }) => {
 
 Front_Card.propTypes = {
   card: PropTypes.object,
+  image: PropTypes.number,
 };
 
 export default Front_Card;
