@@ -13,12 +13,13 @@ const Main = () => {
     cvc: "000",
   };
 
-  let nuevoValor = false;
+  let completeState = false;
   let mobileImage = "../../public/assets/images/bg-main-mobile.png";
   let desktopImage = "../../public/assets/images/bg-main-desktop.png";
 
   const [card, setCard] = useState(initialState);
   const [image, setImage] = useState(window.innerWidth);
+  const [form, setForm] = useState(completeState);
 
   useEffect(() => {
     const handleResize = () => {
@@ -65,6 +66,10 @@ const Main = () => {
     });
   };
 
+  const sendForm = () => {
+    setForm(true);
+  };
+
   return (
     <main className="container-main">
       <div className="container-card">
@@ -77,7 +82,7 @@ const Main = () => {
         <Front_Card card={card} image={image} />
       </div>
       <div className="container-form">
-        {nuevoValor ? (
+        {form ? (
           <Complete_state />
         ) : (
           <Form_card
@@ -86,6 +91,7 @@ const Main = () => {
             setMonth={newMonth}
             setYear={newYear}
             setCvc={newCvc}
+            form={sendForm}
           />
         )}
       </div>

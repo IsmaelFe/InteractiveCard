@@ -3,7 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import PropTypes from "prop-types";
 
-const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc }) => {
+const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc, form }) => {
   const styleError = {
     border: "solid 1px red",
   };
@@ -18,9 +18,7 @@ const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc }) => {
       .max(16, "Demasiados números"),
     month: Yup.number().required("Campo Requerido"),
     year: Yup.number().required("El campo es requerido"),
-    cvc: Yup.number()
-      .required("El campo es requerido")
-      .min(3, "Valores faltantes en el campo"),
+    cvc: Yup.number().required("El campo es requerido"),
   });
 
   const initialCredentials = {
@@ -38,7 +36,11 @@ const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc }) => {
 
   return (
     <div className="form-container">
-      <Formik initialValues={initialCredentials} validationSchema={loginSchema}>
+      <Formik
+        initialValues={initialCredentials}
+        validationSchema={loginSchema}
+        onSubmit={form}
+      >
         {({ touched, errors }) => (
           <Form className="form-main">
             <label htmlFor="cardholder">CARDHOLDER NAME</label>
@@ -136,6 +138,7 @@ Form_card.propTypes = {
   setMonth: PropTypes.func,
   setYear: PropTypes.func,
   setCvc: PropTypes.func,
+  form: PropTypes.func,
 };
 
 export default Form_card;
