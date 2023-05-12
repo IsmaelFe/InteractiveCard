@@ -10,15 +10,24 @@ const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc, form }) => {
 
   const loginSchema = Yup.object().shape({
     cardholder: Yup.string()
-      .max(16, "Nombre demasiado largo")
-      .required("El nombre es requerido"),
-    card_number: Yup.string("El formato es incorrecto solo numeros")
-      .required("El campo es requerido")
-      .min(16, "Faltan números")
-      .max(16, "Demasiados números"),
-    month: Yup.number().required("Campo Requerido"),
-    year: Yup.number().required("El campo es requerido"),
-    cvc: Yup.number().required("El campo es requerido"),
+      .max(16, "Name too long")
+      .required("Field is required"),
+    card_number: Yup.string()
+      .required("Field is required")
+      .min(16, "Missing numbers")
+      .max(16, "Too many characters"),
+    month: Yup.string()
+      .required("Field is required")
+      .max(2, "Too many characters")
+      .min(2, "Missing characters"),
+    year: Yup.string()
+      .required("Field is required")
+      .max(2, "Too many characters")
+      .min(2, "Missing characters"),
+    cvc: Yup.string()
+      .required("Field is required")
+      .max(3, "Too many characters")
+      .min(3, "Missing characters"),
   });
 
   const initialCredentials = {

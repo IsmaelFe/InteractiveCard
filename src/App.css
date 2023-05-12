@@ -113,6 +113,11 @@
   letter-spacing: 1px;
 }
 
+.form-main input:hover {
+  cursor: pointer;
+  border: solid 1px #A57CC0;
+}
+
 .form-main label {
   font-size: 0.8em;
   letter-spacing: 1.5px;
