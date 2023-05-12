@@ -37,7 +37,7 @@ const Front_Card = ({ card, image }) => {
         {card.month}/{lYear > 1 ? null : "0"}
         {card.year}
       </span>
-      <img src="../../images/card-logo.svg" className="icon-card"></img>
+      <img src="../../assets/images/card-logo.svg" className="icon-card"></img>
       <input
         style={image > 500 ? stylesDesktop : stylesInput}
         value={`${numberOne} ${numberTwo} ${numberTre} ${numberFour}`}
@@ -45,7 +45,7 @@ const Front_Card = ({ card, image }) => {
         readOnly
         className="input-front-card"
       ></input>
-      <img src="../../images/bg-card-front.png" alt="card"></img>
+      <img src="../../assets/images/bg-card-front.png" alt="card"></img>
     </div>
   );
 };
