@@ -18,16 +18,13 @@ const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc, form }) => {
       .max(16, "Too many characters"),
     month: Yup.string()
       .required("Field is required")
-      .max(2, "Too many characters")
-      .min(2, "Missing characters"),
+      .max(2, "Too many characters"),
     year: Yup.string()
       .required("Field is required")
-      .max(2, "Too many characters")
-      .min(2, "Missing characters"),
+      .max(2, "Too many characters"),
     cvc: Yup.string()
       .required("Field is required")
-      .max(3, "Too many characters")
-      .min(3, "Missing characters"),
+      .max(3, "Too many characters"),
   });
 
   const initialCredentials = {
@@ -37,11 +34,6 @@ const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc, form }) => {
     year: "",
     cvc: "",
   };
-
-  //function actualizar(e) {
-  //const valor = e.target.value
-  //setNew(valor)
-  //}
 
   return (
     <div className="form-container">

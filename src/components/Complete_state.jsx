@@ -5,7 +5,7 @@ const Complete_state = () => {
     <div className="complete-state">
       <img src="/assets/images/icon-complete.svg" alt="confirm"></img>
       <h2>THANK YOU!</h2>
-      <p>Weve added your card details</p>
+      <p>We&#39;ve added your card details</p>
       <button>Continue</button>
     </div>
   );
