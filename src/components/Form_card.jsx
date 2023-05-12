@@ -24,7 +24,8 @@ const Form_card = ({ setNew, setNum, setMonth, setYear, setCvc, form }) => {
       .max(2, "Too many characters"),
     cvc: Yup.string()
       .required("Field is required")
-      .max(3, "Too many characters"),
+      .max(3, "Too many characters")
+      .min(3, "Missing numbers"),
   });
 
   const initialCredentials = {
