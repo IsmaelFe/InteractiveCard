@@ -25,7 +25,7 @@ const Back_Card = ({ card, image }) => {
         className="input-back-card"
         readOnly
       ></input>
-      <img src="../../public/assets/images/bg-card-back.png" alt="card"></img>
+      <img src="./public/assets/images/bg-card-back.png" alt="card"></img>
     </div>
   );
 };

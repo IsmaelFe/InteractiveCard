@@ -38,7 +38,7 @@ const Front_Card = ({ card, image }) => {
         {card.year}
       </span>
       <img
-        src="../public/assets/images/card-logo.svg"
+        src="./public/assets/images/card-logo.svg"
         className="icon-card"
       ></img>
       <input
@@ -48,7 +48,7 @@ const Front_Card = ({ card, image }) => {
         readOnly
         className="input-front-card"
       ></input>
-      <img src="../public/assets/images/bg-card-front.png" alt="card"></img>
+      <img src="./public/assets/images/bg-card-front.png" alt="card"></img>
     </div>
   );
 };
