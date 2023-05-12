@@ -14,8 +14,8 @@ const Main = () => {
   };
 
   let completeState = false;
-  let mobileImage = "../../images/bg-main-mobile.png";
-  let desktopImage = "../../public/assets/images/bg-main-desktop.png";
+  let mobileImage = "../../assets/images/bg-main-mobile.png";
+  let desktopImage = "../../assets/images/bg-main-desktop.png";
 
   const [card, setCard] = useState(initialState);
   const [image, setImage] = useState(window.innerWidth);
