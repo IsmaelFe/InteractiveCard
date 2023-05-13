@@ -250,17 +250,19 @@
   }
 
   .card2 {
-    width: 400px;
+    width: 85%;
     height: 300px;
     margin-left: 200px;
     margin-top: -250px;
+    transform: translate(-20%, 0);
   }
 
   .card1 {
-    width: 400px;
+    width: 85%;
     height: 300px;
     margin-top: 250px;
     margin-left: 280px;
+    transform: translate(-20%, 0);
   }
 
   .container-form {
@@ -294,4 +296,23 @@
   .form-container {
     margin-top: -5px;
   }
+}
+
+@media (min-width: 2000px) {
+  .card2 {
+    width: 400px;
+    height: 300px;
+    margin-left: 200px;
+    margin-top: -250px;
+    transform: translate(30%, 0);
+  }
+
+  .card1 {
+    width: 400px;
+    height: 300px;
+    margin-top: 250px;
+    margin-left: 280px;
+    transform: translate(30%, 0);
+  }
+
 }
